@@ -12,7 +12,7 @@ class ActivitiesController < ApplicationController
         if activity
             activity.signups.destroy_all
             activity.destroy
-            render json: {}
+            head :no_content
         else
             render json: {"error": "Activity not found"}, status: :not_found
         end
